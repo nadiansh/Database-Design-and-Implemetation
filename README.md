@@ -61,6 +61,5 @@ Feel free to fork, clone, or ask questions!
 
 
 
-## Badges 
 
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue) ![Project Type](https://img.shields.io/badge/Type-Relational%20DB-green)
