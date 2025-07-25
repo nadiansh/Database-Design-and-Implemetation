@@ -1,0 +1,105 @@
+
+-- Dental Office Database Design
+
+CREATE DATABASE DentalOffice;
+USE DentalOffice;
+
+-- Doctors Table
+CREATE TABLE Doctors (
+    DoctorID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Specialty VARCHAR(100),
+    Phone VARCHAR(20),
+    Email VARCHAR(100),
+    PRIMARY KEY (DoctorID));
+
+-- Patients Table
+CREATE TABLE Patients (
+    PatientID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DOB DATE,
+    Phone VARCHAR(20),
+    Email VARCHAR(100),
+    PRIMARY KEY (PatientID));
+
+-- Treatments Table
+CREATE TABLE Treatments (
+    TreatmentID INT,
+    TreatmentName VARCHAR(100),
+    Description TEXT,
+    Cost DECIMAL(10,2),
+    Duration INT, 
+	PRIMARY KEY (TreatmentID));
+
+-- Appointments Table
+CREATE TABLE Appointments (
+    AppointmentID INT,
+    PatientID INT,
+    DoctorID INT,
+    TreatmentID INT,
+    AppointmentDate DATETIME,
+    Notes TEXT,
+    PRIMARY KEY (AppointmentID),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID),
+    FOREIGN KEY (TreatmentID) REFERENCES Treatments(TreatmentID));
+
+-- Payments Table
+CREATE TABLE Payments (
+    PaymentID INT,
+    PatientID INT,
+    Amount DECIMAL(10,2),
+    PaymentDate DATE,
+    Method VARCHAR(50),
+    Notes TEXT,
+	PRIMARY KEY (PaymentID),
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID));
+
+-- Insert Data for Doctors table
+INSERT INTO Doctors (DoctorID, FirstName, LastName, Specialty, Phone, Email) VALUES
+(1, 'Dr. Aarav', 'Singh', 'Orthodontist', '555-1234', 'aarav.singh@example.com'),
+(2, 'Dr. Mei', 'Chen', 'Endodontist', '555-5678', 'mei.chen@example.com'),
+(3, 'Dr. Fatima', 'Hassan', 'Periodontist', '555-9101', 'fatima.hassan@example.com'),
+(4, 'Dr. Carlos', 'Ramirez', 'Prosthodontist', '555-1121', 'carlos.ramirez@example.com'),
+(5, 'Dr. Hana', 'Yamamoto', 'General Dentist', '555-3141', 'hana.yamamoto@example.com');
+
+-- Insert Data for Patients table
+INSERT INTO Patients (PatientID, FirstName, LastName, DOB, Phone, Email) VALUES
+(1, 'Nguyen', 'Thi Mai', '1990-04-12', '555-2020', 'mai.nguyen@example.com'),
+(2, 'Kwame', 'Mensah', '1985-09-18', '555-3030', 'kwame.mensah@example.com'),
+(3, 'Aaliyah', 'Patel', '2000-07-30', '555-4040', 'aaliyah.patel@example.com'),
+(4, 'Omar', 'Farouk', '1995-11-22', '555-5050', 'omar.farouk@example.com'),
+(5, 'Svetlana', 'Ivanova', '1988-03-14', '555-6060', 'svetlana.ivanova@example.com');
+
+-- Insert Data for Treatments table
+INSERT INTO Treatments (TreatmentID, TreatmentName, Description, Cost, Duration) VALUES
+(1, 'Teeth Cleaning', 'Routine dental cleaning', 80.00, 30),
+(2, 'Root Canal', 'Treatment for infected tooth pulp', 500.00, 90),
+(3, 'Braces Installation', 'Orthodontic treatment for alignment', 2500.00, 120),
+(4, 'Tooth Extraction', 'Removal of damaged tooth', 150.00, 45),
+(5, 'Dental Filling', 'Filling cavities in teeth', 120.00, 40);
+
+-- Insert Data for Appointments table
+INSERT INTO Appointments (AppointmentID, PatientID, DoctorID, TreatmentID, AppointmentDate, Notes) VALUES
+(1, 1, 5, 1, '2025-06-01 10:00:00', 'Regular check-up and cleaning.'),
+(2, 2, 2, 2, '2025-06-02 14:00:00', 'Root canal on lower right molar.'),
+(3, 3, 1, 3, '2025-06-03 09:00:00', 'Braces consultation and fitting.'),
+(4, 4, 3, 4, '2025-06-04 11:00:00', 'Tooth extraction due to decay.'),
+(5, 5, 4, 5, '2025-06-05 13:00:00', 'Filling two cavities.');
+
+-- Insert Data for Payments table
+INSERT INTO Payments (PaymentID, PatientID, Amount, PaymentDate, Method, Notes) VALUES
+(1, 1, 80.00, '2025-06-01', 'Credit Card', 'Paid in full.'),
+(2, 2, 500.00, '2025-06-02', 'Insurance', 'Covered by insurance.'),
+(3, 3, 1250.00, '2025-06-03', 'Credit Card', 'Initial payment for braces.'),
+(4, 4, 150.00, '2025-06-04', 'Cash', 'Paid at clinic.'),
+(5, 5, 120.00, '2025-06-05', 'Debit Card', 'Paid same day.');
+
+
+SELECT * FROM Doctors;
+SELECT * FROM Patients;
+SELECT * FROM Treatments;
+SELECT * FROM Appointments;
+SELECT * FROM Payments;
