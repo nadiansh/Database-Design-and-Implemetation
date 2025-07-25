@@ -61,5 +61,5 @@ Feel free to fork, clone, or ask questions!
 
 
 
-
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff)](#)
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue) ![Project Type](https://img.shields.io/badge/Type-Relational%20DB-green)
