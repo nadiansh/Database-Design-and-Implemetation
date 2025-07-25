@@ -1,4 +1,4 @@
-# Dental Office Database
+# Database Design and Implementation
 
 A relational database project designed to manage operations in a dental clinic. This system includes doctors, patients, appointments, treatments, and payment tracking—implemented using MySQL with a real-world schema.
 
