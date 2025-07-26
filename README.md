@@ -54,12 +54,11 @@ Design and implement a normalized, relational database system for a dental offic
 
 
 
-## Contact
-
-Project by **Nadia H.A.**  
-Feel free to fork, clone, or ask questions!
+##
 
 
 
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff)](#)
-![MySQL](https://img.shields.io/badge/Database-MySQL-blue) ![Project Type](https://img.shields.io/badge/Type-Relational%20DB-green)
+[![MySQL Workbench](https://img.shields.io/badge/Tool-MySQL%20Workbench-00618A?logo=mysql&logoColor=fff)](#)
+[![Relational DB](https://img.shields.io/badge/Type-Relational%20DB-005C97?logo=databricks&logoColor=fff)](#)
+
